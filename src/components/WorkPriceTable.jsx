@@ -5,9 +5,9 @@ import { SET_USER_VALUE_PRICE, SET_USER_VALUE_WORK, SET_NEW_WORK, DELETE_WORK, E
 export default function WorkPriceTable(props) {
   const { works } = useSelector((state) => state.workPrice);
   const dispatch = useDispatch();
-  const [EditWork, setEditWork] = useState({isEdit: false, id: 0})
-  const workInput = useRef()
-  const priceInput = useRef()
+  const [EditWork, setEditWork] = useState({isEdit: false, id: 0});
+  const workInput = useRef();
+  const priceInput = useRef();
 
   const cleanInput = () => {
     dispatch({ type: SET_USER_VALUE_WORK, payload: '' });
@@ -25,21 +25,21 @@ export default function WorkPriceTable(props) {
         dispatch({
           type: SET_NEW_WORK
         });
-        break
+        break;
       default:
         dispatch({
           type: EDIT_OLD_WORK,
           id: id
         })
     }
-    cleanInput()
+    cleanInput();
   };
 
   const handleEdit = (id) => {
     const work = works.find(item => item.id === id);
     workInput.current.value = work.work;
     priceInput.current.value = work.price;
-    setEditWork({isEdit: true, id: id})
+    setEditWork({isEdit: true, id: id});
   }
 
   const handleDelete = (id) => dispatch({ type: DELETE_WORK, payload: id });
@@ -57,7 +57,6 @@ export default function WorkPriceTable(props) {
         <input ref={priceInput} name="price" className="work-information__work-price" type="text" required onChange={(evt) => handleChange(evt, SET_USER_VALUE_PRICE)} />
         <button className="work-information__send-information">{EditWork.isEdit ? 'Сохранить' : 'Отправить'}</button>
         { EditWork.isEdit ? <button className="work-information__cancel" onClick={handleAbort}>Отменить</button> : null}
-
       </form>
       <ul className="works">
         {works.map(item => <li key={item.id} className="work-element">
