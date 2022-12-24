@@ -1,10 +1,10 @@
 import './App.css';
-import WorkPriceTable from './components/WorkPriceTable';
+import WorkPricePage from './components/WorkPricePage';
 
 function App() {
   return (
       <div className="App">
-        <WorkPriceTable/>
+        <WorkPricePage/>
       </div>
   );
 }
