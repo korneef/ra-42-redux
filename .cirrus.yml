@@ -20,7 +20,7 @@ deploy_task:
   env:
     GITHUB_TOKEN: ENCRYPTED[!12ce39a51fe1e38e17f3a4caf0abe1c26ba73f7f2485e4e3ae7ceb72fc06d5082914a267999edaf442ff14fccffcf341!]
     USER: korneef
-    REPO: ra-42-hooks-use-effect
+    REPO: ra-42-redux
   deploy_script: 
     - git config --global user.name "Cirrus-CI"
     - git config --global user.email "ci@cirruslabs.org"
